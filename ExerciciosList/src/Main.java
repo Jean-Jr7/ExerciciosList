@@ -4,7 +4,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         //crie uma lista e add 7 notas
-        /*ArrayList<Double> notas = new ArrayList<>();
+        ArrayList<Double> notas = new ArrayList<>();
         notas.add(1.0);
         notas.add(2.0);
         notas.add(3.0);
@@ -70,18 +70,34 @@ public class Main {
         notas2.addAll(notas);
         System.out.println(notas2);
 
-         */
-        List<Gatos> meusGastos = new ArrayList<>(){{
+
+        List<Gatos> meusGatos = new ArrayList<>(){{
             add(new Gatos("joao",10,"preto"));
             add(new Gatos("lucas",12,"branco"));
             add(new Gatos("joao",20,"amarelo"));
         }};
-        //ordem por insercao
-        System.out.println(meusGastos);
-        // Ordem aleatoria
-        Collections.shuffle(meusGastos);
-        System.out.println(meusGastos);
-        //Ordem Natural
+        System.out.println("\n********** ordem por insercao **********");
+        System.out.println(meusGatos);
+
+        System.out.println("\n********** Ordem aleatoria **********");
+        Collections.shuffle(meusGatos);
+        System.out.println(meusGatos);
+
+        System.out.println("\n********** Ordem Natural Por nome **********");
+        Collections.sort(meusGatos);
+        System.out.println(meusGatos);
+
+        System.out.println("\n********** Ordem Por idade **********");
+        Collections.sort(meusGatos, new ComparatorIdade());
+        System.out.println(meusGatos);
+
+        System.out.println("\n********** Ordem por cor **********");
+        Collections.sort(meusGatos, new ComparatorCor());
+        System.out.println(meusGatos);
+
+        System.out.println("\n********** Ordem Por Nome Cor e idade **********");
+        Collections.sort(meusGatos,new ComparatorNomeCorIdade());
+        System.out.println(meusGatos);
 
 
     }
